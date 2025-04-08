@@ -8,8 +8,8 @@ const root = ReactDOM.createRoot(document.getElementById('root')!);
 
 root.render(
   <React.StrictMode>
-    {/* Ajouter le basename ici pour gérer les routes dans GitHub Pages */}
-    <Router basename={window.location.pathname || ""}>
+    {/* Définit basename pour GitHub Pages */}
+    <Router basename={process.env.PUBLIC_URL || ""}>
       <App />
     </Router>
   </React.StrictMode>
