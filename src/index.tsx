@@ -9,8 +9,8 @@ const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
   <React.StrictMode>
     {/* Définit basename pour GitHub Pages */}
-    <Router basename={process.env.PUBLIC_URL || ""}>
+
       <App />
-    </Router>
+
   </React.StrictMode>
 );
