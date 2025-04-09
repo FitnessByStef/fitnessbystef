@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Layout from './Layout';
+import { Link } from 'react-router-dom';
 
 export default function HomePage() {
   return (
@@ -76,7 +77,10 @@ export default function HomePage() {
       <footer className="text-center py-8 text-sm text-gray-500 bg-gray-950 border-t border-gray-800">
         <p>
           &copy; {new Date().getFullYear()} FitnessByStef. Tous droits réservés.
-          <a href="/privacy-policy" className="ml-4 hover:text-green-400">Politique de confidentialité</a>
+          <nav>
+            {/* Utiliser Link au lieu de <a> */}
+            <Link to="/privacy-policy">Politique de confidentialité</Link>
+          </nav>
         </p>
       </footer>
     </Layout>
