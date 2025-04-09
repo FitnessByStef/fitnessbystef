@@ -5,7 +5,7 @@ import PrivacyPolicy from './components/PrivacyPolicy'; // Vérifie que le chemi
 
 const App = () => {
   return (
-    <Router basename="/fitnessbystef"> 
+    <Router> 
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
