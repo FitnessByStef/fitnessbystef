@@ -4,13 +4,13 @@ import './index.css';
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+// Utilisation du basename pour GitHub Pages
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 
 root.render(
   <React.StrictMode>
-    {/* Définit basename pour GitHub Pages */}
-
+    <Router basename="/fitnessbystef">
       <App />
-
+    </Router>
   </React.StrictMode>
 );
