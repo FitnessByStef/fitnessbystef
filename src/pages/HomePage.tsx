@@ -1,9 +1,16 @@
 // src/pages/HomePage.tsx
 import React from "react";
 import { Link } from "react-router-dom";
+import Seo from "../components/Seo";
 
 export default function HomePage() {
   return (
+    <>
+    <Seo
+      title="Coach sportif à Thèze (64) – Fitness, musculation, running | Studio Gris"
+      description="Coach sportif à Thèze (64). Cours de fitness, musculation, course à pied, nutrition et préparation mentale. Studio Gris & SGCoaching : accompagnement personnalisé."
+      canonical="https://fitnessbystef.fr/"
+    />
     <div className="page">
       {/* HERO */}
       <section className="hero-card">
@@ -120,5 +127,6 @@ export default function HomePage() {
         </article>
       </section>
     </div>
+  </>
   );
 }

@@ -1,6 +1,7 @@
 // src/components/Header.tsx
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { Facebook } from "lucide-react";
 
 function cn(...parts: Array<string | false | null | undefined>) {
   return parts.filter(Boolean).join(" ");
@@ -9,55 +10,73 @@ function cn(...parts: Array<string | false | null | undefined>) {
 export default function Header() {
   return (
     <header className="header">
-      <div className="header-left">
-        <div className="header-logo-wrapper">
-          <img src="/assets/Logo_SG.png" alt="SGCoaching" className="header-logo" />
+      <div className="header-inner">
+        {/* LEFT: Brand */}
+        <div className="header-left">
+          <a href="/" className="header-brand" aria-label="Retour à l’accueil">
+            <div className="header-logo-wrapper">
+              <img src="/assets/Logo_SG.png" alt="SGCoaching" className="header-logo" />
+            </div>
+
+            <div className="header-titles">
+              <p className="header-title">
+                <span className="header-title-main">SGCoaching</span>
+                <span className="header-title-sub"> • Corps en bonne santé</span>
+              </p>
+              <p className="header-tagline">Fitness • Musculation • Running • Nutrition • Mental</p>
+            </div>
+          </a>
         </div>
 
-        <div>
-          <p className="header-title">
-            <span className="header-title-main">SGCoaching</span>
-            <span className="header-title-sub"> • Corps en bonne santé</span>
-          </p>
+        {/* CENTER: Nav (menu qui ressemble à un menu) */}
+        <nav className="header-nav" aria-label="Menu principal">
+          <NavLink to="/" className={({ isActive }) => cn("nav-pill", isActive && "nav-pill--active")}>
+            Accueil
+          </NavLink>
+
+          <NavLink
+            to="/studio-gris"
+            className={({ isActive }) => cn("nav-pill", isActive && "nav-pill--active")}
+          >
+            Studio Gris
+          </NavLink>
+
+          <NavLink
+            to="/sgcoaching"
+            className={({ isActive }) => cn("nav-pill", isActive && "nav-pill--active")}
+          >
+            SGCoaching
+          </NavLink>
+
+          <NavLink
+            to="/programmes-pdf"
+            className={({ isActive }) => cn("nav-pill", isActive && "nav-pill--active")}
+          >
+            Programmes PDF
+          </NavLink>
+        </nav>
+
+        {/* RIGHT: Social + CTA */}
+        <div className="header-actions">
+          <a
+            href="https://www.facebook.com/profile.php?id=61578888413122"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="icon-btn"
+            aria-label="Page Facebook Studio Gris"
+            title="Facebook"
+          >
+            <Facebook size={18} />
+          </a>
+
+          <NavLink
+            to="/contact"
+            className={({ isActive }) => cn("cta-btn", isActive && "cta-btn--active")}
+          >
+            Contact →
+          </NavLink>
         </div>
       </div>
-
-      <nav className="header-nav">
-        <NavLink
-          to="/"
-          className={({ isActive }) => cn("nav-link", isActive && "nav-link-active")}
-        >
-          Accueil
-        </NavLink>
-
-        <NavLink
-          to="/studio-gris"
-          className={({ isActive }) => cn("nav-link", isActive && "nav-link-active")}
-        >
-          Cours Studio Gris
-        </NavLink>
-
-        <NavLink
-          to="/sgcoaching"
-          className={({ isActive }) => cn("nav-link", isActive && "nav-link-active")}
-        >
-          SGCoaching
-        </NavLink>
-
-        <NavLink
-          to="/programmes-pdf"
-          className={({ isActive }) => cn("nav-link", isActive && "nav-link-active")}
-        >
-          Programmes PDF
-        </NavLink>
-
-        <NavLink
-          to="/contact"
-          className={({ isActive }) => cn("nav-link", isActive && "nav-link-active")}
-        >
-          Contact
-        </NavLink>
-      </nav>
     </header>
   );
 }

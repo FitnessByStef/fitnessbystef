@@ -1,5 +1,6 @@
 // src/pages/CoachingPage.tsx
 import React, { useMemo, useState } from "react";
+import Seo from "../components/Seo";
 
 type Audience = "studio" | "exterieur";
 
@@ -183,75 +184,82 @@ export default function CoachingPage() {
   const list = offers[audience];
 
   return (
-    <div className="page">
-      {/* HERO (plus court, plus vendeur) */}
-      <section className="hero-card hero-card--compact">
-        <div className="hero-main">
-          <p className="hero-kicker">SGCOACHING • SPORT • NUTRITION • MENTAL</p>
-          <h1 className="hero-title">SGCoaching</h1>
-          <p className="hero-text">
-            Une méthode simple : <b>on structure</b>, <b>on ajuste</b>, <b>tu progresses</b>.
-            L’application apporte la base, moi je fais le coaching réel : personnalisation, suivi
-            et préparation mentale quand c’est nécessaire.
-          </p>
+    <>
+      <Seo
+            title="Coach sportif à Thèze (64) – Fitness, musculation, running | Studio Gris"
+            description="Coach sportif à Thèze (64). Cours de fitness, musculation, course à pied, nutrition et préparation mentale. Studio Gris & SGCoaching : accompagnement personnalisé."
+            canonical="https://fitnessbystef.fr/"
+          />
+      <div className="page">
+        {/* HERO (plus court, plus vendeur) */}
+        <section className="hero-card hero-card--compact">
+          <div className="hero-main">
+            <p className="hero-kicker">SGCOACHING • SPORT • NUTRITION • MENTAL</p>
+            <h1 className="hero-title">SGCoaching</h1>
+            <p className="hero-text">
+              Une méthode simple : <b>on structure</b>, <b>on ajuste</b>, <b>tu progresses</b>.
+              L’application apporte la base, moi je fais le coaching réel : personnalisation, suivi
+              et préparation mentale quand c’est nécessaire.
+            </p>
 
-          {/* SWITCH (sans scroll, lisible) */}
-          <div className="segmented">
-            <button
-              type="button"
-              className={cn("seg-btn", audience === "studio" && "seg-btn--active")}
-              onClick={() => {
-                setAudience("studio");
-                setOpenKey(null);
-              }}
-            >
-              Abonné Studio Gris
-            </button>
-            <button
-              type="button"
-              className={cn("seg-btn", audience === "exterieur" && "seg-btn--active")}
-              onClick={() => {
-                setAudience("exterieur");
-                setOpenKey(null);
-              }}
-            >
-              Client extérieur
-            </button>
+            {/* SWITCH (sans scroll, lisible) */}
+            <div className="segmented">
+              <button
+                type="button"
+                className={cn("seg-btn", audience === "studio" && "seg-btn--active")}
+                onClick={() => {
+                  setAudience("studio");
+                  setOpenKey(null);
+                }}
+              >
+                Abonné Studio Gris
+              </button>
+              <button
+                type="button"
+                className={cn("seg-btn", audience === "exterieur" && "seg-btn--active")}
+                onClick={() => {
+                  setAudience("exterieur");
+                  setOpenKey(null);
+                }}
+              >
+                Client extérieur
+              </button>
+            </div>
+
+            <p className="axis-note" style={{ marginTop: 10 }}>
+              {audience === "exterieur" ? (
+                <>
+                  Astuce : en rejoignant le <b>Studio Gris</b>, tu passes sur des <b>tarifs préférentiels</b>.
+                </>
+              ) : (
+                <>
+                  Tarifs préférentiels réservés aux abonnés Studio Gris.
+                </>
+              )}
+            </p>
           </div>
 
-          <p className="axis-note" style={{ marginTop: 10 }}>
-            {audience === "exterieur" ? (
-              <>
-                Astuce : en rejoignant le <b>Studio Gris</b>, tu passes sur des <b>tarifs préférentiels</b>.
-              </>
-            ) : (
-              <>
-                Tarifs préférentiels réservés aux abonnés Studio Gris.
-              </>
-            )}
-          </p>
-        </div>
+          <div className="hero-visual">
+            <img
+              src="/assets/Img_Fond_SGFitness.png"
+              alt="Chaîne SGCoaching"
+              className="hero-chains"
+            />
+          </div>
+        </section>
 
-        <div className="hero-visual">
-          <img
-            src="/assets/Img_Fond_SGFitness.png"
-            alt="Chaîne SGCoaching"
-            className="hero-chains"
-          />
-        </div>
-      </section>
-
-      {/* PRICING : 3 cartes max (finis les 2 grosses sections) */}
-      <section className="pricing-grid">
-        {list.map((o) => (
-          <OfferCard
-            key={o.key}
-            offer={o}
-            open={openKey === o.key}
-            onToggle={() => setOpenKey((prev) => (prev === o.key ? null : o.key))}
-          />
-        ))}
-      </section>
-    </div>
+        {/* PRICING : 3 cartes max (finis les 2 grosses sections) */}
+        <section className="pricing-grid">
+          {list.map((o) => (
+            <OfferCard
+              key={o.key}
+              offer={o}
+              open={openKey === o.key}
+              onToggle={() => setOpenKey((prev) => (prev === o.key ? null : o.key))}
+            />
+          ))}
+        </section>
+      </div>
+    </>
   );
 }

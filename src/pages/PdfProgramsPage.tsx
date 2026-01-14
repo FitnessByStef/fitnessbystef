@@ -1,5 +1,6 @@
 // src/pages/PdfProgramsPage.tsx
 import React, { useState } from "react";
+import Seo from "../components/Seo";
 
 type PdfPack = {
   key: string;
@@ -120,86 +121,93 @@ export default function PdfProgramsPage() {
   ];
 
   return (
-    <div className="page">
-      {/* HERO dans le même style que Coaching */}
-      <section className="hero-card hero-card--compact">
-        <div className="hero-main">
-          <p className="hero-kicker">PROGRAMMES PDF • EN COURS DE PRÉPARATION</p>
+    <>
+      <Seo
+        title="Coach sportif à Thèze (64) – Fitness, musculation, running | Studio Gris"
+        description="Coach sportif à Thèze (64). Cours de fitness, musculation, course à pied, nutrition et préparation mentale. Studio Gris & SGCoaching : accompagnement personnalisé."
+        canonical="https://fitnessbystef.fr/"
+      />
+      <div className="page">
+        {/* HERO dans le même style que Coaching */}
+        <section className="hero-card hero-card--compact">
+          <div className="hero-main">
+            <p className="hero-kicker">PROGRAMMES PDF • EN COURS DE PRÉPARATION</p>
 
-          <h1 className="hero-title">Programmes PDF</h1>
+            <h1 className="hero-title">Programmes PDF</h1>
 
-          <p className="hero-text">
-            Des plans <b>prêts à l’emploi</b> pour t’entraîner en autonomie avec une structure claire.
-            Si tu veux du <b>sur-mesure + suivi</b>, SGCoaching est fait pour ça.
-          </p>
+            <p className="hero-text">
+              Des plans <b>prêts à l’emploi</b> pour t’entraîner en autonomie avec une structure claire.
+              Si tu veux du <b>sur-mesure + suivi</b>, SGCoaching est fait pour ça.
+            </p>
 
-          <ul className="hero-list">
-            <li>• Débutant / Intermédiaire / Avancé.</li>
-            <li>• Séances détaillées + consignes simples.</li>
-            <li>• Objectifs : forme, perte de poids, renforcement, mobilité.</li>
-          </ul>
+            <ul className="hero-list">
+              <li>• Débutant / Intermédiaire / Avancé.</li>
+              <li>• Séances détaillées + consignes simples.</li>
+              <li>• Objectifs : forme, perte de poids, renforcement, mobilité.</li>
+            </ul>
 
-          <div className="hero-cta-row">
-            <a className="btn-primary" href="/contact">
-              Être prévenu à la sortie →
-            </a>
-            <a className="btn-secondary" href="/sgcoaching">
-              Plutôt un coaching sur-mesure
-            </a>
+            <div className="hero-cta-row">
+              <a className="btn-primary" href="/contact">
+                Être prévenu à la sortie →
+              </a>
+              <a className="btn-secondary" href="/sgcoaching">
+                Plutôt un coaching sur-mesure
+              </a>
+            </div>
+
+            <p className="axis-note" style={{ marginTop: 10 }}>
+              Prix indicatif : <b>19€–29€</b> selon le programme.
+            </p>
           </div>
 
-          <p className="axis-note" style={{ marginTop: 10 }}>
-            Prix indicatif : <b>19€–29€</b> selon le programme.
-          </p>
-        </div>
-
-        <div className="hero-visual">
-          <img
-            src="/assets/Img_Fond_SGFitness.png"
-            alt="Chaîne SGCoaching"
-            className="hero-chains"
-          />
-        </div>
-      </section>
-
-      {/* 3 cartes max visibles (comme Coaching) */}
-      <section className="pricing-grid">
-        {packs.map((p) => (
-          <PdfCard
-            key={p.key}
-            pack={p}
-            open={openKey === p.key}
-            onToggle={() => setOpenKey((prev) => (prev === p.key ? null : p.key))}
-          />
-        ))}
-      </section>
-
-      {/* Bloc “Bientôt” propre et rassurant */}
-      <section className="pdf-soon">
-        <div className="axis-card">
-          <h2 className="axis-title">Bientôt : paiement & téléchargement</h2>
-          <p className="axis-text">
-            Les programmes seront disponibles ici avec une fiche détaillée, un paiement en ligne
-            et un téléchargement immédiat.
-          </p>
-          <ul className="axis-list">
-            <li>• Achat sécurisé</li>
-            <li>• Accès instantané au PDF</li>
-            <li>• Mise à jour des programmes au fil du temps</li>
-          </ul>
-          <p className="axis-note">
-            En attendant, tu peux me laisser un message : je te préviens dès que c’est en ligne.
-          </p>
-          <div className="hero-cta-row">
-            <a className="btn-primary" href="/contact">
-              OK, je veux être prévenu →
-            </a>
-            <a className="btn-secondary" href="https://www.studiogris.fr" target="_blank" rel="noreferrer">
-              Voir les cours Studio Gris
-            </a>
+          <div className="hero-visual">
+            <img
+              src="/assets/Img_Fond_SGFitness.png"
+              alt="Chaîne SGCoaching"
+              className="hero-chains"
+            />
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+
+        {/* 3 cartes max visibles (comme Coaching) */}
+        <section className="pricing-grid">
+          {packs.map((p) => (
+            <PdfCard
+              key={p.key}
+              pack={p}
+              open={openKey === p.key}
+              onToggle={() => setOpenKey((prev) => (prev === p.key ? null : p.key))}
+            />
+          ))}
+        </section>
+
+        {/* Bloc “Bientôt” propre et rassurant */}
+        <section className="pdf-soon">
+          <div className="axis-card">
+            <h2 className="axis-title">Bientôt : paiement & téléchargement</h2>
+            <p className="axis-text">
+              Les programmes seront disponibles ici avec une fiche détaillée, un paiement en ligne
+              et un téléchargement immédiat.
+            </p>
+            <ul className="axis-list">
+              <li>• Achat sécurisé</li>
+              <li>• Accès instantané au PDF</li>
+              <li>• Mise à jour des programmes au fil du temps</li>
+            </ul>
+            <p className="axis-note">
+              En attendant, tu peux me laisser un message : je te préviens dès que c’est en ligne.
+            </p>
+            <div className="hero-cta-row">
+              <a className="btn-primary" href="/contact">
+                OK, je veux être prévenu →
+              </a>
+              <a className="btn-secondary" href="https://www.studiogris.fr" target="_blank" rel="noreferrer">
+                Voir les cours Studio Gris
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
   );
 }
