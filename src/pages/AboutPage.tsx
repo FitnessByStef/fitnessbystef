@@ -100,12 +100,12 @@ export default function AboutPage() {
 
     <div className="gallery-strip" aria-label="Aperçu galerie">
         {[
-        { src: "/assets/images/gallery-athletic.png", alt: "Cours Athletic Studio Gris" },
-        { src: "/assets/images/gallery-powerpulse.jpg", alt: "Cours Powerpulse Studio Gris" },
-        { src: "/assets/images/gallery-boxing.png", alt: "Cardio Boxing Studio Gris" },
-        { src: "/assets/images/gallery-running-1.jpg", alt: "Running" },
-        { src: "/assets/images/gallery-running-2.jpg", alt: "Running" },
-        { src: "/assets/images/gallery-tennis.jpeg", alt: "Tennis" },
+        { src: "/assets/Images/gallery-athletic.png", alt: "Cours Athletic Studio Gris" },
+        { src: "/assets/Images/gallery-powerpulse.jpg", alt: "Cours Powerpulse Studio Gris" },
+        { src: "/assets/Images/gallery-boxing.png", alt: "Cardio Boxing Studio Gris" },
+        { src: "/assets/Images/gallery-running-1.jpg", alt: "Running" },
+        { src: "/assets/Images/gallery-running-2.jpg", alt: "Running" },
+        { src: "/assets/Images/gallery-tennis.jpeg", alt: "Tennis" },
         ].map((it) => (
         <figure key={it.src} className="gallery-strip__item">
             <img src={it.src} alt={it.alt} />

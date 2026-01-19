@@ -52,7 +52,16 @@ export default function Header() {
           >
             Accueil
           </NavLink>
-
+          
+          <NavLink
+            to="/sgcoaching"
+            className={({ isActive }) =>
+              cn("nav-pill", isActive && "nav-pill--active")
+            }
+          >
+            SGCoaching
+          </NavLink>
+          
           <NavLink
             to="/studio-gris"
             className={({ isActive }) =>
@@ -62,23 +71,7 @@ export default function Header() {
             Studio Gris
           </NavLink>
 
-          <NavLink
-            to="/sgcoaching"
-            className={({ isActive }) =>
-              cn("nav-pill", isActive && "nav-pill--active")
-            }
-          >
-            SGCoaching
-          </NavLink>
-
-          <NavLink
-            to="/programmes-pdf"
-            className={({ isActive }) =>
-              cn("nav-pill", isActive && "nav-pill--active")
-            }
-          >
-            Programmes PDF
-          </NavLink>
+          
 
           <NavLink
             to="/a-propos"

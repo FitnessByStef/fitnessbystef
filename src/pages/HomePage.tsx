@@ -1,44 +1,50 @@
 import React from "react";
 import Seo from "../components/Seo";
 import { Link } from "react-router-dom";
+import { PassionCarousel } from "../components/PassionCarousel";
 
 export default function HomePage() {
+  // Mets ici ton lien exact Calendly vers l’OFFRE découverte (event type)
+  const RDV_DISCOVERY_LINK = "https://calendly.com/stef-palanque"; // TODO: idéalement /sgcoaching-45min
+
   return (
     <>
       <Seo
-        title="À propos – Coach sportif à Thèze (64) | Studio Gris"
-        description="Découvre une approche claire et durable : entraînement, nutrition, routines, et progression sans te cramer."
-        canonical="https://fitnessbystef.fr/a-propos"
+        title="Coach sportif à Thèze (64) – Sport, nutrition & bien-être | SGCoaching"
+        description="Coaching sport + nutrition + bien-être. Réserve l’offre découverte : entretien + programme personnalisé 7 jours généré avec SGCoaching."
+        canonical="https://fitnessbystef.fr/"
       />
 
       <div className="page">
+        {/* HERO : 1 message + 2 actions */}
         <section className="hero-card hero-card--compact hero-card--with-chains">
           <div className="hero-main">
-            <p className="hero-kicker">À PROPOS • APPROCHE • SUIVI</p>
+            <p className="hero-kicker">COACHING • SPORT • NUTRITION • BIEN-ÊTRE</p>
 
-            {/* ✅ Titre neutre, pas égocentrique */}
-            <h1 className="hero-title">Une approche simple, complète, et durable.</h1>
+            <h1 className="hero-title">Une méthode simple pour progresser sans te cramer.</h1>
 
             <p className="hero-text">
-              Ici, pas de promesses magiques. L’idée est simple : <b>un plan clair</b>, <b>des ajustements</b>, et{" "}
-              <b>de la régularité</b>. Tu progresses sans te cramer, en respectant ton niveau, ton planning et ta récup.
+              Un cadre clair, des ajustements, et de la régularité. Objectif : des résultats visibles, mais surtout durables.
             </p>
 
-            {/* ✅ “Complet” mais discret : on liste ce que la personne obtient */}
             <ul className="hero-list">
-              <li>• Entraînement : fitness, musculation, course à pied, mobilité.</li>
-              <li>• Nutrition : calories + macros + habitudes (sans prise de tête).</li>
-              <li>• Routines : sommeil, stress, constance — quand c’est le vrai frein.</li>
+              <li>• Entraînement : renforcement, fitness, course à pied, mobilité.</li>
+              <li>• Nutrition : calories + macros + habitudes (simple et tenable).</li>
+              <li>• Routines : sommeil, stress, récupération (quand c’est le vrai frein).</li>
             </ul>
 
             <div className="hero-cta-row">
-              <Link to="/sgcoaching" className="btn-primary">
-                Découvrir SGCoaching →
-              </Link>
-              <Link to="/contact" className="btn-secondary">
-                Me contacter
+              <a className="btn-primary" href={RDV_DISCOVERY_LINK} target="_blank" rel="noreferrer">
+                Réserver l’offre découverte →
+              </a>
+              <Link to="/sgcoaching" className="btn-secondary">
+                Découvrir SGCoaching
               </Link>
             </div>
+
+            <p className="axis-note" style={{ marginTop: 10 }}>
+              Créneaux limités chaque semaine • Paiement à la réservation via Calendly
+            </p>
           </div>
 
           <div className="hero-visual hero-visual--photo">
@@ -49,92 +55,108 @@ export default function HomePage() {
             />
           </div>
         </section>
+        
 
+        {/* 3 cartes = clair et pas trop long */}
         <section className="axes">
           <article className="axis-card">
-            <h2 className="axis-title">Ma façon de coacher</h2>
+            <h2 className="axis-title">Ce que tu obtiens</h2>
             <p className="axis-text">
-              On va à l’essentiel : une structure simple, des repères, et un suivi réel. Le but : avancer vite… mais
-              surtout avancer longtemps.
+              Un plan concret, adapté à ton temps, ton niveau, et tes contraintes. Pas de blabla.
             </p>
             <ul className="axis-list">
-              <li>• Progression graduelle (sans brûler les étapes)</li>
-              <li>• Technique + prévention des douleurs</li>
-              <li>• Récupération et régularité (le vrai levier)</li>
+              <li>• Plan d’entraînement structuré</li>
+              <li>• Cadre nutrition simple</li>
+              <li>• Ajustements selon ta fatigue</li>
             </ul>
           </article>
 
           <article className="axis-card">
-            <h2 className="axis-title">Pour qui c’est fait</h2>
-            <p className="axis-text">
-              Si tu veux une méthode claire, un cadre, et quelqu’un qui te guide sans te noyer dans le blabla.
-            </p>
+            <h2 className="axis-title">Pour qui ?</h2>
+            <p className="axis-text">Si tu veux être guidé avec une méthode claire et tenable.</p>
             <ul className="axis-list">
               <li>• Reprise / remise en forme</li>
-              <li>• Silhouette / perte de poids</li>
-              <li>• Perf running / hygiène de vie</li>
+              <li>• Silhouette / tonus</li>
+              <li>• Running / hygiène de vie</li>
             </ul>
           </article>
 
           <article className="axis-card">
-            {/* ✅ Orthographe propre */}
             <h2 className="axis-title">Où je coache</h2>
             <p className="axis-text">
-              Au Studio Gris (présentiel) ou à distance via SGCoaching, selon ton besoin et ton emploi du temps.
+              Présentiel au Studio Gris (cours) et coaching à distance via SGCoaching.
             </p>
             <div className="hero-cta-row">
               <a className="btn-primary" href="https://www.studiogris.fr" target="_blank" rel="noreferrer">
                 Studio Gris →
               </a>
-              <Link className="btn-secondary" to="/sgcoaching">
-                Offres SGCoaching →
+              <Link className="btn-secondary" to="/contact">
+                Me contacter
               </Link>
             </div>
           </article>
+          
         </section>
 
-        {/* ✅ Remplace “PILIERS” par un bloc discret et naturel */}
-        <section className="axes" style={{ marginTop: 18 }}>
-          <article className="axis-card">
-            <p className="hero-kicker" style={{ marginBottom: 6 }}>
-              TERRAIN
-            </p>
-            <h2 className="axis-title">Studio Gris</h2>
-            <p className="axis-text">
-              L’énergie du collectif : intensité, fun, et un cadre propre. Idéal pour se dépasser sans se prendre la tête.
-            </p>
-            <div className="media-tile">
-              <img src="/assets/images/gallery-boxing.png" alt="Cardio Boxing Studio Gris" />
-            </div>
-          </article>
-
-          <article className="axis-card">
-            <p className="hero-kicker" style={{ marginBottom: 6 }}>
-              TERRAIN
-            </p>
-            <h2 className="axis-title">Running</h2>
-            <p className="axis-text">
-              Construire une progression solide : endurance, séances clés, technique… pour durer et éviter les blessures.
-            </p>
-            <div className="media-tile">
-              <img src="/assets/images/gallery-running-2.jpg" alt="Running – foulée" />
-            </div>
-          </article>
-
-          <article className="axis-card">
-            <p className="hero-kicker" style={{ marginBottom: 6 }}>
-              TERRAIN
-            </p>
-            <h2 className="axis-title">Tennis</h2>
-            <p className="axis-text">
-              Technique et pédagogie : appuis, coordination, précision. Un gros plus pour un coaching complet et intelligent.
-            </p>
-            <div className="media-tile">
-              <img src="/assets/images/gallery-tennis.jpeg" alt="Tennis – passion & technique" />
-            </div>
-          </article>
+        <section className="passions">
+          <PassionCarousel
+            slides={[
+              {
+                id: "athletic",
+                title: "Athletic",
+                subtitle: "Cardio • explosivité • énergie",
+                img: "/assets/Images/gallery-athletic.png",
+                alt: "Cours Athletic",
+              },
+              {
+                id: "powerpulse",
+                title: "PowerPulse",
+                subtitle: "Renfo en musique • rythme • intensité",
+                img: "/assets/Images/gallery-powerpulse.jpg",
+                alt: "Cours PowerPulse",
+              },
+              {
+                id: "cardioboxing",
+                title: "Cardio Boxing",
+                subtitle: "Cardio • explosivité • énergie",
+                img: "/assets/Images/hero-boxing.png",
+                alt: "Cours Athletic",
+              },
+              {
+                id: "running1",
+                title: "Running",
+                subtitle: "Endurance • structure • progression",
+                img: "/assets/Images/gallery-running-1.jpg",
+                alt: "Running – passion",
+              },
+              {
+                id: "running3",
+                title: "Course à pied",
+                subtitle: "Régularité • plaisir • performance",
+                img: "/assets/Images/Running3.jpg",
+                alt: "Course à pied",
+              },
+              {
+                id: "muscu",
+                title: "Musculation",
+                subtitle: "Force utile • posture • gainage",
+                img: "/assets/Images/hero-renfo.png",
+                alt: "Musculation – renforcement",
+              },
+              {
+                id: "tennis",
+                title: "Tennis",
+                subtitle: "Enseignement en club • pédagogie • coordination",
+                img: "/assets/Images/gallery-tennis.jpeg",
+                alt: "Tennis – enseignement en club",
+              },
+            ]}
+          />
         </section>
+
       </div>
+      
+
     </>
   );
 }

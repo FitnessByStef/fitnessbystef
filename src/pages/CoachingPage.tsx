@@ -228,7 +228,7 @@ export default function CoachingPage() {
                   </h2>
                 </div>
                 <div className="offer-price">
-                  <div className="offer-price-main">39€</div>
+                  <div className="offer-price-main">39.99€</div>
                 </div>
               </div>
 

@@ -27,7 +27,7 @@ export default function GalleryPage() {
           </div>
 
           <div className="hero-visual hero-visual--photo">
-            <img className="hero-photo" src="/assets/images/gallery-running-1.jpg" alt="Running" />
+            <img className="hero-photo" src="/assets/Images/gallery-running-1.jpg" alt="Running" />
           </div>
         </section>
 
@@ -37,7 +37,7 @@ export default function GalleryPage() {
             <h2 className="axis-title">Studio Gris</h2>
             <p className="axis-text">L’énergie du collectif, du fun, et du travail bien fait.</p>
             <div className="media-tile">
-              <img src="/assets/images/gallery-boxing.png" alt="Cardio Boxing Studio Gris" />
+              <img src="/assets/Images/gallery-boxing.png" alt="Cardio Boxing Studio Gris" />
             </div>
           </article>
 
@@ -45,7 +45,7 @@ export default function GalleryPage() {
             <h2 className="axis-title">Running</h2>
             <p className="axis-text">Rigueur, foulée, progressivité : construire sans se cramer.</p>
             <div className="media-tile">
-              <img src="/assets/images/gallery-running-2.jpg" alt="Running" />
+              <img src="/assets/Images/gallery-running-2.jpg" alt="Running" />
             </div>
           </article>
 
@@ -53,7 +53,7 @@ export default function GalleryPage() {
             <h2 className="axis-title">Tennis</h2>
             <p className="axis-text">Technique et pédagogie : mieux bouger, mieux exécuter.</p>
             <div className="media-tile">
-              <img src="/assets/images/gallery-tennis.jpeg" alt="Tennis" />
+              <img src="/assets/Images/gallery-tennis.jpeg" alt="Tennis" />
             </div>
           </article>
         </section>
