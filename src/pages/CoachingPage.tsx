@@ -7,8 +7,8 @@ type Audience = "studio" | "exterieur";
 type Offer = {
   key: string;
   title: string;
-  badge?: string; // "Recommandé", "Premium", etc.
-  price: string;  // "+60€ / mois"
+  badge?: string;
+  price: string;
   subtitle: string;
   bullets: string[];
   ctaLabel: string;
@@ -29,6 +29,8 @@ function OfferCard({
   open: boolean;
   onToggle: () => void;
 }) {
+  const isExternal = /^https?:\/\//i.test(offer.ctaHref);
+
   return (
     <article
       className={cn(
@@ -41,7 +43,12 @@ function OfferCard({
       <div className="offer-head">
         <div>
           {offer.badge ? (
-            <span className={cn("offer-badge", offer.variant === "recommended" && "offer-badge--recommended")}>
+            <span
+              className={cn(
+                "offer-badge",
+                offer.variant === "recommended" && "offer-badge--recommended"
+              )}
+            >
               {offer.badge}
             </span>
           ) : null}
@@ -62,7 +69,11 @@ function OfferCard({
       </ul>
 
       <div className="offer-actions">
-        <a className="btn-primary" href={offer.ctaHref}>
+        <a
+          className="btn-primary"
+          href={offer.ctaHref}
+          {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
+        >
           {offer.ctaLabel}
         </a>
         <button type="button" className="btn-secondary offer-btn-details" onClick={onToggle}>
@@ -74,16 +85,21 @@ function OfferCard({
 }
 
 export default function CoachingPage() {
-  const [audience, setAudience] = useState<Audience>("studio");
+  const [audience, setAudience] = useState<Audience>("exterieur");
   const [openKey, setOpenKey] = useState<string | null>(null);
+
+  // ✅ IMPORTANT : mets ici le lien DIRECT vers l'event type (pas juste le profil).
+  // Ex: https://calendly.com/stef-palanque/sgcoaching-45min
+  const RDV_DISCOVERY_LINK = "https://calendly.com/stef-palanque"; // TODO: remplace par le lien exact de l'évènement
+  const CONTACT_ROUTE = "/contact";
 
   const offers = useMemo<Record<Audience, Offer[]>>(
     () => ({
       studio: [
         {
           key: "studio-essentiel",
-          title: "SGCoaching Essentiel — Studio Gris",
-          badge: "Abonnés Studio Gris",
+          title: "SGCoaching Essentiel — Abonnés Studio Gris",
+          badge: "Tarif abonnés",
           price: "+20€ / mois",
           subtitle: "Le cadre + les programmes, sans RDV. Parfait pour compléter les cours.",
           bullets: [
@@ -92,8 +108,8 @@ export default function CoachingPage() {
             "Ajustements réguliers",
             "Objectifs, contraintes et niveau pris en compte",
           ],
-          ctaLabel: "Je démarre →",
-          ctaHref: "/contact",
+          ctaLabel: "Me contacter →",
+          ctaHref: CONTACT_ROUTE,
         },
         {
           key: "studio-suivi",
@@ -107,8 +123,8 @@ export default function CoachingPage() {
             "WhatsApp + ajustements",
             "Suivi fatigue, motivation, progression",
           ],
-          ctaLabel: "Je veux du suivi →",
-          ctaHref: "/contact",
+          ctaLabel: "Me contacter →",
+          ctaHref: CONTACT_ROUTE,
           variant: "recommended",
         },
         {
@@ -116,15 +132,15 @@ export default function CoachingPage() {
           title: "SGCoaching Premium Holistique — Studio Gris",
           badge: "Premium",
           price: "+80€ / mois",
-          subtitle: "Transformation complète : corps + mental + équilibre. Ton offre signature.",
+          subtitle: "Sport + nutrition + routines : l’accompagnement complet, simple et efficace.",
           bullets: [
             "1 RDV par semaine (présentiel ou visio)",
             "Sport + nutrition personnalisés",
-            "Préparation mentale avec moi",
-            "Approche holistique : stress, récupération, routines",
+            "Routines bien-être (sommeil, stress, récup)",
+            "Préparation mentale si besoin",
           ],
-          ctaLabel: "Passer en Premium →",
-          ctaHref: "/contact",
+          ctaLabel: "Me contacter →",
+          ctaHref: CONTACT_ROUTE,
           variant: "premium",
         },
       ],
@@ -141,8 +157,8 @@ export default function CoachingPage() {
             "Ajustements réguliers",
             "Objectifs, contraintes et niveau pris en compte",
           ],
-          ctaLabel: "Demander infos →",
-          ctaHref: "/contact",
+          ctaLabel: "Me contacter →",
+          ctaHref: CONTACT_ROUTE,
         },
         {
           key: "ext-suivi",
@@ -156,8 +172,8 @@ export default function CoachingPage() {
             "WhatsApp + ajustements",
             "Suivi progression, fatigue, motivation",
           ],
-          ctaLabel: "Commencer →",
-          ctaHref: "/contact",
+          ctaLabel: "Me contacter →",
+          ctaHref: CONTACT_ROUTE,
           variant: "recommended",
         },
         {
@@ -165,15 +181,15 @@ export default function CoachingPage() {
           title: "SGCoaching Premium Holistique",
           badge: "Premium",
           price: "159€ / mois",
-          subtitle: "Sport + nutrition + préparation mentale : l’accompagnement complet.",
+          subtitle: "Sport + nutrition + routines : l’accompagnement complet.",
           bullets: [
             "1 RDV par semaine",
             "Sport + nutrition personnalisés",
-            "Préparation mentale avec moi",
-            "Approche holistique : stress, récupération, routines",
+            "Préparation mentale si besoin",
+            "Approche holistique : stress, récupération, sommeil",
           ],
-          ctaLabel: "Choisir Premium →",
-          ctaHref: "/contact",
+          ctaLabel: "Me contacter →",
+          ctaHref: CONTACT_ROUTE,
           variant: "premium",
         },
       ],
@@ -186,24 +202,64 @@ export default function CoachingPage() {
   return (
     <>
       <Seo
-            title="Coach sportif à Thèze (64) – Fitness, musculation, running | Studio Gris"
-            description="Coach sportif à Thèze (64). Cours de fitness, musculation, course à pied, nutrition et préparation mentale. Studio Gris & SGCoaching : accompagnement personnalisé."
-            canonical="https://fitnessbystef.fr/"
-          />
+        title="SGCoaching – Coaching sport, nutrition & bien-être | Thèze (64)"
+        description="Réserve l’offre découverte : entretien + programme personnalisé sport/nutrition/bien-être pour 7 jours généré avec SGCoaching."
+        canonical="https://fitnessbystef.fr/sgcoaching"
+      />
+
       <div className="page">
-        {/* HERO (plus court, plus vendeur) */}
-        <section className="hero-card hero-card--compact">
+        <section className="hero-card hero-card--compact hero-card--with-chains">
           <div className="hero-main">
-            <p className="hero-kicker">SGCOACHING • SPORT • NUTRITION • MENTAL</p>
-            <h1 className="hero-title">SGCoaching</h1>
+            <p className="hero-kicker">SGCOACHING • SPORT • NUTRITION • BIEN-ÊTRE</p>
+            <h1 className="hero-title">Un plan clair. Des ajustements. Des résultats.</h1>
+
             <p className="hero-text">
-              Une méthode simple : <b>on structure</b>, <b>on ajuste</b>, <b>tu progresses</b>.
-              L’application apporte la base, moi je fais le coaching réel : personnalisation, suivi
-              et préparation mentale quand c’est nécessaire.
+              Tu veux arrêter d’improviser ? On fait simple : on échange, je comprends ton objectif et tes contraintes,
+              et tu repars avec un plan concret.
             </p>
 
-            {/* SWITCH (sans scroll, lisible) */}
-            <div className="segmented">
+            {/* ✅ Seule offre avec réservation/paiement */}
+            <div className="axis-card" style={{ marginTop: 14 }}>
+              <div className="offer-head" style={{ marginBottom: 6 }}>
+                <div>
+                  <span className="offer-badge offer-badge--recommended">Offre découverte</span>
+                  <h2 className="axis-title" style={{ marginTop: 8 }}>
+                    RDV + programme personnalisé 7 jours
+                  </h2>
+                </div>
+                <div className="offer-price">
+                  <div className="offer-price-main">39€</div>
+                </div>
+              </div>
+
+              <p className="axis-text">
+                Un entretien (30–40 min) + un programme <b>sport / nutrition / bien-être</b> généré avec SGCoaching à la
+                fin du RDV.
+              </p>
+
+              <ul className="axis-list">
+                <li>• Objectif + niveau + contraintes (temps, douleurs, matériel)</li>
+                <li>• Planning sport sur 7 jours + conseils techniques</li>
+                <li>• Cadre nutrition simple (calories/macros + exemples)</li>
+                <li>• Routine bien-être (sommeil / stress / récup) selon le besoin</li>
+              </ul>
+
+              <div className="hero-cta-row" style={{ marginTop: 10 }}>
+                <a className="btn-primary" href={RDV_DISCOVERY_LINK} target="_blank" rel="noreferrer">
+                  Réserver →
+                </a>
+                <a className="btn-secondary" href={CONTACT_ROUTE}>
+                  Me contacter
+                </a>
+              </div>
+
+              <p className="axis-note" style={{ marginTop: 10 }}>
+                Pour les coachings mensuels (Essentiel / Suivi / Premium), passe par <b>Me contacter</b>.
+              </p>
+            </div>
+
+            {/* Switch audience */}
+            <div className="segmented" style={{ marginTop: 14 }}>
               <button
                 type="button"
                 className={cn("seg-btn", audience === "studio" && "seg-btn--active")}
@@ -229,27 +285,21 @@ export default function CoachingPage() {
             <p className="axis-note" style={{ marginTop: 10 }}>
               {audience === "exterieur" ? (
                 <>
-                  Astuce : en rejoignant le <b>Studio Gris</b>, tu passes sur des <b>tarifs préférentiels</b>.
+                  Tu peux aussi rejoindre le <b>Studio Gris</b> pour des <b>tarifs préférentiels</b>.
                 </>
               ) : (
-                <>
-                  Tarifs préférentiels réservés aux abonnés Studio Gris.
-                </>
+                <>Tarifs préférentiels réservés aux abonnés Studio Gris.</>
               )}
             </p>
           </div>
 
           <div className="hero-visual">
-            <img
-              src="/assets/Img_Fond_SGFitness.png"
-              alt="Chaîne SGCoaching"
-              className="hero-chains"
-            />
+            <img src="/assets/Img_Fond_SGFitness.png" alt="SGCoaching" className="hero-chains" />
           </div>
         </section>
 
-        {/* PRICING : 3 cartes max (finis les 2 grosses sections) */}
-        <section className="pricing-grid">
+        {/* Offres mensuelles : CTA -> Contact uniquement */}
+        <section id="offres" className="pricing-grid">
           {list.map((o) => (
             <OfferCard
               key={o.key}

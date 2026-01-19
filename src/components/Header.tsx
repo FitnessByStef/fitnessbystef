@@ -13,46 +13,80 @@ export default function Header() {
       <div className="header-inner">
         {/* LEFT: Brand */}
         <div className="header-left">
-          <a href="/" className="header-brand" aria-label="Retour à l’accueil">
+          <NavLink
+            to="/"
+            end
+            className="header-brand"
+            aria-label="Retour à l’accueil"
+          >
             <div className="header-logo-wrapper">
-              <img src="/assets/Logo_SG.png" alt="SGCoaching" className="header-logo" />
+              <img
+                src="/assets/Logo_SG.png"
+                alt="SGCoaching"
+                className="header-logo"
+              />
             </div>
 
             <div className="header-titles">
               <p className="header-title">
                 <span className="header-title-main">SGCoaching</span>
-                <span className="header-title-sub"> • Corps en bonne santé</span>
+                <span className="header-title-sub">
+                  {" "}• Corps en bonne santé
+                </span>
               </p>
-              <p className="header-tagline">Fitness • Musculation • Running • Nutrition • Mental</p>
+              <p className="header-tagline">
+                Fitness • Musculation • Running • Nutrition • Mental
+              </p>
             </div>
-          </a>
+          </NavLink>
         </div>
 
-        {/* CENTER: Nav (menu qui ressemble à un menu) */}
+        {/* CENTER: Nav */}
         <nav className="header-nav" aria-label="Menu principal">
-          <NavLink to="/" className={({ isActive }) => cn("nav-pill", isActive && "nav-pill--active")}>
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) =>
+              cn("nav-pill", isActive && "nav-pill--active")
+            }
+          >
             Accueil
           </NavLink>
 
           <NavLink
             to="/studio-gris"
-            className={({ isActive }) => cn("nav-pill", isActive && "nav-pill--active")}
+            className={({ isActive }) =>
+              cn("nav-pill", isActive && "nav-pill--active")
+            }
           >
             Studio Gris
           </NavLink>
 
           <NavLink
             to="/sgcoaching"
-            className={({ isActive }) => cn("nav-pill", isActive && "nav-pill--active")}
+            className={({ isActive }) =>
+              cn("nav-pill", isActive && "nav-pill--active")
+            }
           >
             SGCoaching
           </NavLink>
 
           <NavLink
             to="/programmes-pdf"
-            className={({ isActive }) => cn("nav-pill", isActive && "nav-pill--active")}
+            className={({ isActive }) =>
+              cn("nav-pill", isActive && "nav-pill--active")
+            }
           >
             Programmes PDF
+          </NavLink>
+
+          <NavLink
+            to="/a-propos"
+            className={({ isActive }) =>
+              cn("nav-pill", isActive && "nav-pill--active")
+            }
+          >
+            À propos
           </NavLink>
         </nav>
 
@@ -71,7 +105,9 @@ export default function Header() {
 
           <NavLink
             to="/contact"
-            className={({ isActive }) => cn("cta-btn", isActive && "cta-btn--active")}
+            className={({ isActive }) =>
+              cn("cta-btn", isActive && "cta-btn--active")
+            }
           >
             Contact →
           </NavLink>
