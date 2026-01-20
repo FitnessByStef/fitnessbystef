@@ -63,6 +63,13 @@ export default function Header() {
           </NavLink>
           
           <NavLink
+            to="/sgcoaching-app"
+            className={({ isActive }) => cn("nav-pill", isActive && "nav-pill--active")}
+          >
+            L’app
+          </NavLink>
+          
+          <NavLink
             to="/studio-gris"
             className={({ isActive }) =>
               cn("nav-pill", isActive && "nav-pill--active")

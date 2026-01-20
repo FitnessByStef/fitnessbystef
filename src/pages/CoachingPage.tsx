@@ -251,6 +251,9 @@ export default function CoachingPage() {
                 <a className="btn-secondary" href={CONTACT_ROUTE}>
                   Me contacter
                 </a>
+                <a className="btn-secondary" href="/sgcoaching-app">
+                  Découvrir l’app →
+                </a>
               </div>
 
               <p className="axis-note" style={{ marginTop: 10 }}>

@@ -11,6 +11,7 @@ import CoachingPage from "./pages/CoachingPage";
 import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import GalleryPage from "./pages/GalleryPage";
+import SgCoachingAppPage from "./pages/SgCoachingAppPage";
 
 export default function App() {
   return (
@@ -23,7 +24,7 @@ export default function App() {
           <Route path="/studio-gris" element={<StudioGrisPage />} />
           <Route path="/programmes-pdf" element={<PdfProgramsPage />} />
           <Route path="/sgcoaching" element={<CoachingPage />} />
-          
+          <Route path="/sgcoaching-app" element={<SgCoachingAppPage />} />
           
           <Route path="/a-propos" element={<AboutPage />} />
           <Route path="/galerie" element={<GalleryPage />} />
