@@ -23,8 +23,9 @@ function clampIndex(i: number, len: number) {
 }
 
 export default function SgCoachingAppPage() {
-  const RDV_DISCOVERY_LINK = "https://calendly.com/stef-palanque"; // mets ton event exact si tu veux
+  const RDV_DISCOVERY_LINK = "https://calendly.com/stef-palanque";
   const CONTACT_ROUTE = "/contact";
+  const APP_URL = "https://sgcoaching-front.onrender.com";
 
   const slides = useMemo<Slide[]>(
     () => [
@@ -118,12 +119,12 @@ export default function SgCoachingAppPage() {
         tag: "PDF",
       },
       {
-        key: "client-soon",
-        kicker: "PROCHAINEMENT EN LIGNE",
-        title: "Bientôt : le client aura sa propre vue en ligne en plus des PDF.",
+        key: "client-access",
+        kicker: "ACCÈS CLIENT",
+        title: "Accès privé : je crée ton compte et tu retrouves tout dans ton espace.",
         text:
-          "Le client pourra consulter son planning, ses séances, sa nutrition, son bien-être et ses outils mentaux " +
-          "directement dans l’app, avec une expérience beaucoup plus fluide.",
+          "Après un court échange, je crée ton accès. Tu consultes ton planning, tes séances, ta nutrition, " +
+          "tes outils bien-être/mental, et tes PDF. Le suivi est clair, simple, et évolutif.",
         image: "/assets/sgcoaching-story/VueClient_Dashboard.png",
         alt: "Vue Client - Dashboard",
         tag: "Client",
@@ -181,7 +182,7 @@ export default function SgCoachingAppPage() {
     <>
       <Seo
         title="SGCoaching – L’app (IA + Coach) | Sport, Nutrition, Bien-être"
-        description="Découvre comment SGCoaching combine IA + expertise du coach pour créer, ajuster et livrer des programmes clairs (sport/nutrition/bien-être/mental)."
+        description="Découvre SGCoaching : une application de coaching premium où l’IA accélère la création du programme et le coach ajuste/valide. Accès sur invitation."
         canonical="https://fitnessbystef.fr/sgcoaching-app"
       />
 
@@ -200,14 +201,21 @@ export default function SgCoachingAppPage() {
 
             <div className="hero-cta-row" style={{ marginTop: 12 }}>
               <a className="btn-primary" href={RDV_DISCOVERY_LINK} target="_blank" rel="noreferrer">
-                Réserver l’offre découverte →
+                Demander un accès →
               </a>
+
+              <a className="btn-secondary" href={APP_URL} target="_blank" rel="noreferrer">
+                Voir l’app (démo) →
+              </a>
+
               <a className="btn-secondary" href={CONTACT_ROUTE}>
                 Me contacter
               </a>
             </div>
 
             <p className="axis-note" style={{ marginTop: 10 }}>
+              Accès sur invitation : je crée ton compte après un court échange (objectif, contraintes, niveau).
+              <br />
               Astuce : utilise les flèches ← → du clavier pour naviguer dans le carousel.
             </p>
           </div>
@@ -233,10 +241,18 @@ export default function SgCoachingAppPage() {
             </div>
 
             <div className="offer-actions" style={{ gap: 10 }}>
-              <button type="button" className="btn-secondary" onClick={() => setIndex((i) => clampIndex(i - 1, slides.length))}>
+              <button
+                type="button"
+                className="btn-secondary"
+                onClick={() => setIndex((i) => clampIndex(i - 1, slides.length))}
+              >
                 ← Précédent
               </button>
-              <button type="button" className="btn-primary" onClick={() => setIndex((i) => clampIndex(i + 1, slides.length))}>
+              <button
+                type="button"
+                className="btn-primary"
+                onClick={() => setIndex((i) => clampIndex(i + 1, slides.length))}
+              >
                 Suivant →
               </button>
             </div>
@@ -290,6 +306,7 @@ export default function SgCoachingAppPage() {
               <li>• Un programme aligné avec ton agenda réel (fatigue, boulot, enfants…).</li>
               <li>• Nutrition simple + applicable + liste de courses.</li>
               <li>• Bien-être & mental : sommeil, stress, routines, outils.</li>
+              <li>• Accès privé : je crée ton compte et je t’accompagne.</li>
             </ul>
           </article>
 
@@ -299,9 +316,20 @@ export default function SgCoachingAppPage() {
               <li>• Gain de temps : l’IA propose une base cohérente.</li>
               <li>• Contrôle total : tu modifies, tu valides, tu imposes ta stratégie.</li>
               <li>• Drag & drop : tu adaptes vite aux contraintes du client.</li>
-              <li>• Livrables PDF propres + app client (bientôt) = expérience premium.</li>
+              <li>• Livrables PDF propres + app client = expérience premium.</li>
             </ul>
           </article>
+        </section>
+
+        {/* COMMENT OBTENIR UN ACCÈS */}
+        <section className="axis-card" style={{ marginTop: 16 }}>
+          <h2 className="axis-title">Comment obtenir un accès ?</h2>
+          <ol className="axis-list" style={{ marginTop: 10 }}>
+            <li>1) Tu me contactes (message / Calendly).</li>
+            <li>2) On définit ton objectif + tes contraintes (10 min).</li>
+            <li>3) Je crée ton accès et ton programme de départ (7 jours).</li>
+            <li>4) On ajuste au fil des semaines selon tes retours.</li>
+          </ol>
         </section>
 
         {/* CTA FINAL */}
@@ -309,12 +337,15 @@ export default function SgCoachingAppPage() {
           <h2 className="axis-title">Prêt à tester ?</h2>
           <p className="axis-text" style={{ marginTop: 8 }}>
             Tu veux voir ce que ça donne pour toi (ou pour tes clients) ? On fait simple : un RDV, tes infos, et tu
-            repars avec un programme concret sur 7 jours.
+            repars avec un programme concret sur 7 jours + un accès privé à l’app.
           </p>
 
           <div className="hero-cta-row" style={{ marginTop: 12 }}>
             <a className="btn-primary" href={RDV_DISCOVERY_LINK} target="_blank" rel="noreferrer">
-              Réserver →
+              Demander un accès →
+            </a>
+            <a className="btn-secondary" href={APP_URL} target="_blank" rel="noreferrer">
+              Voir l’app (démo) →
             </a>
             <a className="btn-secondary" href={CONTACT_ROUTE}>
               Me contacter
