@@ -17,6 +17,7 @@ import ProgrammeVenusPage from "./pages/ProgrammeVenusPage";
 import ProgramDownloadPage from "./pages/ProgramDownloadPage";
 import TelechargementVenusPage from "./pages/TelechargementVenus";
 import TelechargementTitanPage from "./pages/TelechargementTitanPage";
+import VendredisOutdoorPage from "./pages/VendredisOutdoorPage";
 
 export default function App() {
   return (
@@ -41,6 +42,7 @@ export default function App() {
           <Route path="/programmes/download" element={<ProgramDownloadPage />} />
           <Route path="/telechargement/titan" element={<TelechargementTitanPage />} />
           <Route path="/telechargement/venus" element={<TelechargementVenusPage />} />
+          <Route path="/vendredis-outdoor" element={<VendredisOutdoorPage />} />
         </Routes>
       </main>
 

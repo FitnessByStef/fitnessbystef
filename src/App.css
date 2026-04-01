@@ -1151,3 +1151,217 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+.outdoor-teaser {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+  align-items: center;
+  margin: 32px 0 40px;
+  padding: 24px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(20, 20, 20, 0.96), rgba(228, 0, 127, 0.88));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.outdoor-teaser__times {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.outdoor-teaser__times span {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.outdoor-teaser__visual {
+  display: block;
+  text-decoration: none;
+}
+
+.outdoor-teaser__poster {
+  width: 100%;
+  max-width: 260px;
+  display: block;
+  margin-left: auto;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+.contact-strip {
+  margin: 32px 0 48px;
+  padding: 24px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-strip__content {
+  max-width: 820px;
+}
+
+@media (max-width: 900px) {
+  .outdoor-teaser {
+    grid-template-columns: 1fr;
+  }
+
+  .outdoor-teaser__poster {
+    margin: 0 auto;
+  }
+}
+.outdoor-highlight {
+  margin: 40px 0;
+  padding: 28px;
+  border-radius: 24px;
+
+  background: linear-gradient(135deg, #111111, #E4007F);
+  color: white;
+
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.outdoor-highlight__times {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.outdoor-highlight__times span {
+  background: rgba(255,255,255,0.12);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.quick-access {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 28px 0 40px;
+}
+
+.quick-access__card {
+  display: block;
+  text-decoration: none;
+  padding: 22px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.quick-access__card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(228, 0, 127, 0.45);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.quick-access__label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #e4007f;
+}
+
+.quick-access__title {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.15rem;
+  color: #ffffff;
+}
+
+.quick-access__text {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.55;
+}
+
+.outdoor-highlight {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+  align-items: center;
+  margin: 10px 0 40px;
+  padding: 28px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #111111, #e4007f);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.outdoor-highlight__times {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.outdoor-highlight__times span {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.outdoor-highlight__visual {
+  display: block;
+  text-decoration: none;
+}
+
+.outdoor-highlight__poster {
+  width: 100%;
+  max-width: 260px;
+  display: block;
+  margin-left: auto;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(228, 0, 127, 0.45);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 980px) {
+  .quick-access {
+    grid-template-columns: 1fr;
+  }
+
+  .outdoor-highlight {
+    grid-template-columns: 1fr;
+  }
+
+  .outdoor-highlight__poster {
+    margin: 0 auto;
+  }
+}
