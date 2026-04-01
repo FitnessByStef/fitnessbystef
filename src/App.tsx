@@ -12,6 +12,11 @@ import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import GalleryPage from "./pages/GalleryPage";
 import SgCoachingAppPage from "./pages/SgCoachingAppPage";
+import ProgrammeTitanPage from "./pages/ProgrammeTitanPage";
+import ProgrammeVenusPage from "./pages/ProgrammeVenusPage";
+import ProgramDownloadPage from "./pages/ProgramDownloadPage";
+import TelechargementVenusPage from "./pages/TelechargementVenus";
+import TelechargementTitanPage from "./pages/TelechargementTitanPage";
 
 export default function App() {
   return (
@@ -30,6 +35,12 @@ export default function App() {
           <Route path="/galerie" element={<GalleryPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
+          
+          <Route path="/programmes/titan" element={<ProgrammeTitanPage />} />
+          <Route path="/programmes/venus" element={<ProgrammeVenusPage />} />
+          <Route path="/programmes/download" element={<ProgramDownloadPage />} />
+          <Route path="/telechargement/titan" element={<TelechargementTitanPage />} />
+          <Route path="/telechargement/venus" element={<TelechargementVenusPage />} />
         </Routes>
       </main>
 

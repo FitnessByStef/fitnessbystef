@@ -4,27 +4,28 @@ import { Link } from "react-router-dom";
 import { PassionCarousel } from "../components/PassionCarousel";
 
 export default function HomePage() {
-  // Mets ici ton lien exact Calendly vers l’OFFRE découverte (event type)
-  const RDV_DISCOVERY_LINK = "https://calendly.com/stef-palanque"; // TODO: idéalement /sgcoaching-45min
+  const RDV_DISCOVERY_LINK = "https://calendly.com/stef-palanque";
 
   return (
     <>
       <Seo
         title="Coach sportif à Thèze (64) – Sport, nutrition & bien-être | SGCoaching"
-        description="Coaching sport + nutrition + bien-être. Réserve l’offre découverte : entretien + programme personnalisé 7 jours généré avec SGCoaching."
+        description="Coaching sport, nutrition et bien-être. Découvre aussi les programmes PDF 4 semaines RESET 4-Titan et RESET 4-Vénus."
         canonical="https://fitnessbystef.fr/"
       />
 
       <div className="page">
-        {/* HERO : 1 message + 2 actions */}
         <section className="hero-card hero-card--compact hero-card--with-chains">
           <div className="hero-main">
             <p className="hero-kicker">COACHING • SPORT • NUTRITION • BIEN-ÊTRE</p>
 
-            <h1 className="hero-title">Une méthode simple pour progresser sans te cramer.</h1>
+            <h1 className="hero-title">
+              Une méthode simple pour progresser sans te cramer.
+            </h1>
 
             <p className="hero-text">
-              Un cadre clair, des ajustements, et de la régularité. Objectif : des résultats visibles, mais surtout durables.
+              Un cadre clair, des ajustements, et de la régularité. Objectif :
+              des résultats visibles, mais surtout durables.
             </p>
 
             <ul className="hero-list">
@@ -34,9 +35,15 @@ export default function HomePage() {
             </ul>
 
             <div className="hero-cta-row">
-              <a className="btn-primary" href={RDV_DISCOVERY_LINK} target="_blank" rel="noreferrer">
+              <a
+                className="btn-primary"
+                href={RDV_DISCOVERY_LINK}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Réserver l’offre découverte →
               </a>
+
               <Link to="/sgcoaching" className="btn-secondary">
                 Découvrir SGCoaching
               </Link>
@@ -55,9 +62,72 @@ export default function HomePage() {
             />
           </div>
         </section>
-        
 
-        {/* 3 cartes = clair et pas trop long */}
+        {/* BLOC VENTE DIRECTEMENT VISIBLE */}
+        <section className="program-sale-hero">
+          <div className="program-sale-hero__header">
+            <p className="hero-kicker">PROGRAMMES PDF • 4 SEMAINES</p>
+            <h2 className="hero-title" style={{ fontSize: "2.2rem" }}>
+              Choisis ton programme et démarre tout de suite
+            </h2>
+            <p className="hero-text">
+              Deux programmes simples, progressifs et motivants pour relancer ta remise en forme avec un vrai cadre.
+            </p>
+          </div>
+
+          <div className="program-choice-grid">
+            <article className="program-choice-card">
+              <span className="program-badge">Homme</span>
+              <h2 className="axis-title">RESET 4 - Titan</h2>
+              <p className="axis-text">
+                Pour retrouver tonus, structure, énergie et régularité.
+              </p>
+
+              <ul className="axis-list">
+                <li>• 4 semaines progressives</li>
+                <li>• Simple à suivre</li>
+                <li>• PDF immédiat après achat</li>
+              </ul>
+
+              <div className="price-box">
+                <span className="price-box__label">Programme PDF</span>
+                <strong className="price-box__price">19€</strong>
+              </div>
+
+              <div className="hero-cta-row" style={{ marginTop: 18 }}>
+                <Link to="/programmes/titan" className="btn-primary">
+                  Voir RESET 4 - Titan →
+                </Link>
+              </div>
+            </article>
+
+            <article className="program-choice-card">
+              <span className="program-badge">Femme</span>
+              <h2 className="axis-title">RESET 4 - Vénus</h2>
+              <p className="axis-text">
+                Pour retrouver énergie, tonicité et bonnes habitudes.
+              </p>
+
+              <ul className="axis-list">
+                <li>• 4 semaines progressives</li>
+                <li>• Cadre motivant</li>
+                <li>• PDF immédiat après achat</li>
+              </ul>
+
+              <div className="price-box">
+                <span className="price-box__label">Programme PDF</span>
+                <strong className="price-box__price">19€</strong>
+              </div>
+
+              <div className="hero-cta-row" style={{ marginTop: 18 }}>
+                <Link to="/programmes/venus" className="btn-primary">
+                  Voir Vénus →
+                </Link>
+              </div>
+            </article>
+          </div>
+        </section>
+
         <section className="axes">
           <article className="axis-card">
             <h2 className="axis-title">Ce que tu obtiens</h2>
@@ -73,7 +143,9 @@ export default function HomePage() {
 
           <article className="axis-card">
             <h2 className="axis-title">Pour qui ?</h2>
-            <p className="axis-text">Si tu veux être guidé avec une méthode claire et tenable.</p>
+            <p className="axis-text">
+              Si tu veux être guidé avec une méthode claire et tenable.
+            </p>
             <ul className="axis-list">
               <li>• Reprise / remise en forme</li>
               <li>• Silhouette / tonus</li>
@@ -87,7 +159,12 @@ export default function HomePage() {
               Présentiel au Studio Gris (cours) et coaching à distance via SGCoaching.
             </p>
             <div className="hero-cta-row">
-              <a className="btn-primary" href="https://www.studiogris.fr" target="_blank" rel="noreferrer">
+              <a
+                className="btn-primary"
+                href="https://www.studiogris.fr"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Studio Gris →
               </a>
               <Link className="btn-secondary" to="/contact">
@@ -95,7 +172,6 @@ export default function HomePage() {
               </Link>
             </div>
           </article>
-          
         </section>
 
         <section className="passions">
@@ -120,7 +196,7 @@ export default function HomePage() {
                 title: "Cardio Boxing",
                 subtitle: "Cardio • explosivité • énergie",
                 img: "/assets/Images/hero-boxing.png",
-                alt: "Cours Athletic",
+                alt: "Cours Cardio Boxing",
               },
               {
                 id: "running1",
@@ -153,10 +229,7 @@ export default function HomePage() {
             ]}
           />
         </section>
-
       </div>
-      
-
     </>
   );
 }
